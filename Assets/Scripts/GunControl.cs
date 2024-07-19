@@ -6,11 +6,11 @@ public class GunControl : MonoBehaviour
 {
 
     private float horizontal;
-   // private float vertical;
-    private float sensitivity = 2;
+    private float vertical;
+    private float sensitivity = 15;
 
-
-
+    public enum ControlTypes { keyboard, mouse}
+    public ControlTypes inputControl = ControlTypes.keyboard;
 
     void Start()
     {
@@ -19,11 +19,20 @@ public class GunControl : MonoBehaviour
     }
     void Update()
     {
+        if (inputControl == ControlTypes.keyboard)
+        {
+            horizontal = Input.GetAxis("Horizontal") * sensitivity * Time.deltaTime;
+            vertical = Input.GetAxis("Vertical") * sensitivity * Time.deltaTime;
+        }
+        else
+        {
+            horizontal = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+            vertical = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+          
+        }
 
-        horizontal = Input.GetAxis("Mouse X") * sensitivity;
-      //  vertical = Input.GetAxis("Mouse Y") * sensitivity;
         transform.Rotate(0, horizontal, 0);
-       //  transform.Rotate(0,0,vertical);
+        transform.Rotate(0, 0, vertical);
 
     }
 }
