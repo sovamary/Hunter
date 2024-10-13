@@ -7,7 +7,7 @@ public class GunControl : MonoBehaviour
 
     private float horizontal;
     private float vertical;
-    private float sensitivity = 15;
+    private float sensitivity = 20;
 
     public enum ControlTypes { keyboard, mouse}
     public ControlTypes inputControl = ControlTypes.keyboard;
