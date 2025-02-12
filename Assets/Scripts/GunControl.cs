@@ -14,7 +14,6 @@ public class GunControl : MonoBehaviour
 
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
@@ -22,17 +21,17 @@ public class GunControl : MonoBehaviour
         if (inputControl == ControlTypes.keyboard)
         {
             horizontal = Input.GetAxis("Horizontal") * sensitivity * Time.deltaTime;
-            vertical = Input.GetAxis("Vertical") * sensitivity * Time.deltaTime;
+          
         }
         else
         {
             horizontal = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-            vertical = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+       
           
         }
 
         transform.Rotate(0, horizontal, 0);
-        transform.Rotate(0, 0, vertical);
+
 
     }
 }
